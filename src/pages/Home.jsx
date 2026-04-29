@@ -14,10 +14,17 @@ const Home = () => {
   }, [sortBy]);
 
   const fetchPosts = async () => {
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from('Posts')
       .select()
       .order(sortBy, { ascending: false });
+
+    if (error) {
+      console.error('Error fetching posts:', error);
+    }
+
+    console.log('Fetched posts:', data);
+    console.log('Sorting by:', sortBy);
 
     setPosts(data || []);
     setFilteredPosts(data || []);
