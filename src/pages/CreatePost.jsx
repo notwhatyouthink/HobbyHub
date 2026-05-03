@@ -1,15 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '../client';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import './CreatePost.css';
 
 const CreatePost = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [post, setPost] = useState({
     title: '',
     content: '',
     imageUrl: '',
   });
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/login');
+    }
+  }, [user, navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,11 +41,16 @@ const CreatePost = () => {
         title: post.title,
         content: post.content,
         imageUrl: post.imageUrl,
+        user_id: user.id,
       })
       .select();
 
     navigate('/');
   };
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <div className="create-post">
