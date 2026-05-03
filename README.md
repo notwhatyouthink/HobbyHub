@@ -1,16 +1,79 @@
-# React + Vite
+# Web Development Final Project - *HobbyHub*
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Submitted by: **Sharnica Jeudy Z23582376**
 
-Currently, two official plugins are available:
+This web app: **A full-stack gaming forum built with React and Supabase where users can create, read, update, and delete posts about video games. Users can browse posts on the home feed with real-time search filtering by title and dynamic sorting by creation time or upvote count. Each post has a dedicated detail page displaying the full content, embedded images from URLs, an upvote button that increments the count saved in the database, and a comments section where users can leave feedback with their name. Posts can be edited or deleted from their detail pages, with all changes persisting in the Supabase PostgreSQL database. The application demonstrates complete CRUD operations using Supabase's JavaScript client library, React Router for navigation with unique URLs per post, useEffect hooks for data fetching, controlled form inputs with state management, and a gradient-based UI with card layouts and hover effects.**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Time spent: **4** hours spent in total
 
-## React Compiler
+## Required Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The following **required** functionality is completed:
 
-## Expanding the ESLint configuration
+- [x] **Web app includes a create form that allows the user to create posts**
+  - Form requires users to add a post title
+  - Forms should have the *option* for users to add: 
+    - additional textual content
+    - an image added as an external image URL
+- [x] **Web app includes a home feed displaying previously created posts**
+  - Web app must include home feed displaying previously created posts
+  - By default, each post on the posts feed should show only the post's:
+    - creation time
+    - title 
+    - upvotes count
+  - Clicking on a post should direct the user to a new page for the selected post
+- [x] **Users can view posts in different ways**
+  - Users can sort posts by either:
+    -  creation time
+    -  upvotes count
+  - Users can search for posts by title
+- [x] **Users can interact with each post in different ways**
+  - The app includes a separate post page for each created post when clicked, where any additional information is shown, including:
+    - content
+    - image
+    - comments
+  - Users can leave comments underneath a post on the post page
+  - Each post includes an upvote button on the post page. 
+    - Each click increases the post's upvotes count by one
+    - Users can upvote any post any number of times
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- [x] **A post that a user previously created can be edited or deleted from its post pages**
+  - After a user creates a new post, they can go back and edit the post
+  - A previously created post can be deleted from its post page
+
+The following **additional** features are implemented:
+
+* [ ] List anything else that you added to improve the site's functionality!
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='https://github.com/FAU-FullStack-Dev-Spring2026/final-project-notwhatyouthink/blob/main/FinalProject.gif' />
+
+<!-- Replace this with whatever GIF tool you used! -->
+GIF created with ...  ScreentoGif
+<!-- Recommended tools:
+[Kap](https://getkap.co/) for macOS
+[ScreenToGif](https://www.screentogif.com/) for Windows
+[peek](https://github.com/phw/peek) for Linux. -->
+
+## Notes
+
+Whats I learned is building a full-stack application with React frontend and Supabase backend, implementing all four CRUD operations (Create, Read, Update, Delete) with async/await and Supabase queries, using React Router with dynamic routes and useParams hook to extract URL parameters, managing complex state across multiple components, fetching and displaying relational data from multiple database tables (Posts and Comments), implementing search functionality with real-time filtering, creating dynamic sorting with database queries using .order() method, handling form submissions and preventing default browser behavior, building an upvote system that updates the database and UI simultaneously, creating a comments system with author attribution, working with PostgreSQL database including table creation and column configuration, using environment variables to secure API credentials, and styling with CSS including gradients, flexbox, grid layouts, and hover effects.
+
+## License
+
+    Copyright [2026] [Sharnica Jeudy]
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
