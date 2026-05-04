@@ -93,7 +93,7 @@ Whats I learned is building a full-stack application with React frontend and Sup
 
 ## GIF
 
-
+<img src='https://github.com/FAU-FullStack-Dev-Spring2026/final-project-notwhatyouthink/blob/main/Final_Project_GIF.gif' /> 
 
 ## License
 
