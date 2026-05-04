@@ -14,6 +14,9 @@ export const AuthProvider = ({ children }) => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
       setLoading(false);
+    }).catch((error) => {
+      console.error('Auth error:', error);
+      setLoading(false);
     });
 
     // Listen for auth changes
@@ -40,16 +43,6 @@ export const AuthProvider = ({ children }) => {
     return { data, error };
   };
 
-  const signInWithGoogle = async () => {
-    const { data, error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo: window.location.origin
-      }
-    });
-    return { data, error };
-  };
-
   const resetPassword = async (email) => {
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/reset-password`,
@@ -66,14 +59,14 @@ export const AuthProvider = ({ children }) => {
     user,
     signUp,
     signIn,
-    signInWithGoogle,
     resetPassword,
     signOut,
   };
 
+  // Always render children, don't wait for loading
   return (
     <AuthContext.Provider value={value}>
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 };

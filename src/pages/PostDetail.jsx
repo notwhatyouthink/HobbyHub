@@ -9,6 +9,8 @@ const PostDetail = () => {
   const [post, setPost] = useState(null);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState({ author: '', comment: '' });
+  const [aiSummary, setAiSummary] = useState('');
+  const [loadingSummary, setLoadingSummary] = useState(false);
 
   useEffect(() => {
     fetchPost();
@@ -73,6 +75,54 @@ const PostDetail = () => {
     }
   };
 
+  const generateAISummary = async () => {
+    setLoadingSummary(true);
+    setAiSummary('');
+
+    try {
+      const commentsText = comments.length > 0 
+        ? comments.map(c => `${c.author}: ${c.comment}`).join('\n')
+        : 'No comments yet.';
+
+      const prompt = `Summarize this gaming post in 2-3 sentences:
+Title: ${post.title}
+Content: ${post.content || 'No content'}
+Upvotes: ${post.upvotes}
+Comments (${comments.length}): ${commentsText}`;
+
+      const response = await fetch(
+        'https://api-inference.huggingface.co/models/facebook/bart-large-cnn',
+        {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${import.meta.env.VITE_HF_API_TOKEN}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            inputs: prompt,
+            parameters: {
+              max_length: 150,
+              min_length: 50
+            }
+          })
+        }
+      );
+
+      const data = await response.json();
+      
+      if (data && data[0] && data[0].summary_text) {
+        setAiSummary(data[0].summary_text);
+      } else {
+        setAiSummary('This post discusses ' + post.title + ' with ' + post.upvotes + ' upvotes and ' + comments.length + ' community comments.');
+      }
+    } catch (error) {
+      console.error('AI Summary Error:', error);
+      setAiSummary('This post discusses ' + post.title + ' with ' + post.upvotes + ' upvotes and ' + comments.length + ' community comments.');
+    } finally {
+      setLoadingSummary(false);
+    }
+  };
+
   if (!post) {
     return <div className="loading">Loading...</div>;
   }
@@ -99,6 +149,24 @@ const PostDetail = () => {
             👍 Upvote
           </button>
           <span className="upvote-count">{post.upvotes} upvotes</span>
+        </div>
+
+        {/* AI Summary Section */}
+        <div className="ai-summary-section">
+          <button 
+            onClick={generateAISummary} 
+            disabled={loadingSummary}
+            className="ai-summary-btn"
+          >
+            {loadingSummary ? '🤖 Generating Summary...' : '🤖 Generate AI Summary'}
+          </button>
+
+          {aiSummary && (
+            <div className="ai-summary-box">
+              <h3>🤖 AI Summary</h3>
+              <p>{aiSummary}</p>
+            </div>
+          )}
         </div>
       </div>
 

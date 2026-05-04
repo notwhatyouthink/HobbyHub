@@ -6,6 +6,8 @@ function App() {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
 
+  console.log('User in App.jsx:', user);
+
   const handleLogout = async () => {
     await signOut();
     navigate('/login');
