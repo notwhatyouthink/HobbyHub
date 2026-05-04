@@ -62,6 +62,39 @@ GIF created with ...  ScreentoGif
 
 Whats I learned is building a full-stack application with React frontend and Supabase backend, implementing all four CRUD operations (Create, Read, Update, Delete) with async/await and Supabase queries, using React Router with dynamic routes and useParams hook to extract URL parameters, managing complex state across multiple components, fetching and displaying relational data from multiple database tables (Posts and Comments), implementing search functionality with real-time filtering, creating dynamic sorting with database queries using .order() method, handling form submissions and preventing default browser behavior, building an upvote system that updates the database and UI simultaneously, creating a comments system with author attribution, working with PostgreSQL database including table creation and column configuration, using environment variables to secure API credentials, and styling with CSS including gradients, flexbox, grid layouts, and hover effects.
 
+## Additional Canvas Features/Requirements
+
+### Live Deployment
+**URL:** https://endearing-custard-414eaa.netlify.app
+
+#### 1. Web App Deployment 
+- Deployed on Netlify with live URL
+- Environment variables configured for production
+- Continuous deployment from GitHub repository
+
+#### 2. User Authentication 
+-  **Email/Password Login** 
+-  **Email/Password Signup** 
+-  **Password Reset Flow** 
+-  **Logout** 
+- Protected routes (Create Post requires authentication)
+- User sessions persist across page refreshes
+- Posts tied to user accounts via user_id
+
+#### 3. AI-Powered Post Summaries 
+- LLM integration using Hugging Face API
+- Generates concise summaries of posts including:
+  - Post title and content
+  - Upvote count
+  - Number of comments
+  - Community sentiment from comments
+- Click-to-generate AI summary on each post detail page
+
+
+## GIF
+
+
+
 ## License
 
     Copyright [2026] [Sharnica Jeudy]
