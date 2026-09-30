@@ -56,7 +56,7 @@ GIF created with ...  ScreentoGif
 [peek](https://github.com/phw/peek) for Linux. -->
 
 
-## Additional Canvas Features/Requirements
+## Additional Features
 
 ### Live Deployment
 **URL:** https://endearing-custard-414eaa.netlify.app
