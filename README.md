@@ -1,10 +1,10 @@
 # Web Development Final Project - *HobbyHub*
 
-Submitted by: **Sharnica Jeudy Z23582376**
+Submitted by: **Sharnica Jeudy**
 
 This web app: **A full-stack gaming forum built with React and Supabase where users can create, read, update, and delete posts about video games. Users can browse posts on the home feed with real-time search filtering by title and dynamic sorting by creation time or upvote count. Each post has a dedicated detail page displaying the full content, embedded images from URLs, an upvote button that increments the count saved in the database, and a comments section where users can leave feedback with their name. Posts can be edited or deleted from their detail pages, with all changes persisting in the Supabase PostgreSQL database. The application demonstrates complete CRUD operations using Supabase's JavaScript client library, React Router for navigation with unique URLs per post, useEffect hooks for data fetching, controlled form inputs with state management, and a gradient-based UI with card layouts and hover effects.**
 
-Time spent: **4** hours spent in total
+Time spent: **6** hours spent in total
 
 ## Required Features
 
@@ -41,9 +41,6 @@ The following **required** functionality is completed:
   - After a user creates a new post, they can go back and edit the post
   - A previously created post can be deleted from its post page
 
-The following **additional** features are implemented:
-
-* [ ] List anything else that you added to improve the site's functionality!
 
 ## Video Walkthrough
 
@@ -58,9 +55,6 @@ GIF created with ...  ScreentoGif
 [ScreenToGif](https://www.screentogif.com/) for Windows
 [peek](https://github.com/phw/peek) for Linux. -->
 
-## Notes
-
-Whats I learned is building a full-stack application with React frontend and Supabase backend, implementing all four CRUD operations (Create, Read, Update, Delete) with async/await and Supabase queries, using React Router with dynamic routes and useParams hook to extract URL parameters, managing complex state across multiple components, fetching and displaying relational data from multiple database tables (Posts and Comments), implementing search functionality with real-time filtering, creating dynamic sorting with database queries using .order() method, handling form submissions and preventing default browser behavior, building an upvote system that updates the database and UI simultaneously, creating a comments system with author attribution, working with PostgreSQL database including table creation and column configuration, using environment variables to secure API credentials, and styling with CSS including gradients, flexbox, grid layouts, and hover effects.
 
 ## Additional Canvas Features/Requirements
 
